@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 import useStyles from './styles'
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 import millify from 'millify'
@@ -7,12 +7,10 @@ import {Cryptocurrencies, News} from '../index'
 
 const HomeInfo = () => {
     const classes = useStyles()
-    const { data, isFetching } = useGetCryptosQuery();
+    const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats
     if(isFetching) return 'Loading...'
-    console.log(globalStats)
-
-    console.log(data)
+    
   return (
     <div className={classes.Home}>
         <div className={classes.global}>
@@ -52,14 +50,12 @@ const HomeInfo = () => {
             </Grid>
         </div>
 
-        <div className={classes.topCurrency}>
-            <Grid container spacing={4}>
-                <Grid item xs={12}>
-                    <Typography variant='h4' className={classes.title} gutterBottom>Top 10 Cryptos</Typography>
-                </Grid>
-                <Cryptocurrencies simplified />
-            </Grid>
-        </div>
+        
+            <div className={classes.topCurrency}>
+                <Typography variant='h4' className={classes.title} gutterBottom>Top 10 Cryptos</Typography>
+                    <Cryptocurrencies simplified />
+            </div>
+        
 
         <div className={classes.topNews}>
             <Grid container spacing={4}>
