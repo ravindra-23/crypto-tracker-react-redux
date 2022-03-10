@@ -13,7 +13,7 @@ const Navbar = () => {
                 <IconButton className={classes.icon} color='inherit'>
                     <img src={Logo} alt='Crypto Icon' className={classes.iconImage} />
                 </IconButton>
-                <Typography variant='h5'>
+                <Typography variant='h5' component={Link} to='/' className={classes.Link}>
                     Crypto Tracker
                 </Typography>
 
