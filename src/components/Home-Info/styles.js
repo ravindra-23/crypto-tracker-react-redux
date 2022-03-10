@@ -38,7 +38,7 @@ export default makeStyles((theme) => ({
     },
 
     topCurrency: {
-        marginTop: '50px'
+        marginTop: '50px',
     },
 
     topNews: {
