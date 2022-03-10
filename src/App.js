@@ -1,8 +1,12 @@
 import React from 'react'
+import { Navbar } from './components'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div>React App Working</div>
+    <Router>
+      <Navbar />
+    </Router>
   )
 }
 
