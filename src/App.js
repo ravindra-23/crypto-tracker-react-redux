@@ -1,7 +1,8 @@
 import React from 'react'
 import { Navbar } from './components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Home, CryptocurrenciesPage, News } from './pages';
+import { HomeInfo, Cryptocurrencies, News, Cryptodetails } from './components';
+// import { Home, CryptocurrenciesPage, NewsPage } from './pages';
 import { CssBaseline } from '@material-ui/core';
 
 const App = () => {
@@ -11,13 +12,16 @@ const App = () => {
       <CssBaseline />
       <Switch>
         <Route exact path='/'>
-          <Home />
+          <HomeInfo />
         </Route>
         <Route path='/cryptocurrencies'>
-          <CryptocurrenciesPage />
+          <Cryptocurrencies />
         </Route>
         <Route path='/news'>
-          <News />
+          <News simplified={false} />
+        </Route>
+        <Route path="/crypto/:coinId">
+              <Cryptodetails />
         </Route>
       </Switch>
     </Router>

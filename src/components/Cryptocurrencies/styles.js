@@ -5,8 +5,10 @@ export default makeStyles((theme) => ({
     rootCard: {
         width: '90%',
         margin: '0 auto',
-        marginTop: '100px'
+        marginTop: '20px'
     },
+
+    toolbar: theme.mixins.toolbar,
 
     card: {
         maxWidth: '400px',
@@ -24,4 +26,8 @@ export default makeStyles((theme) => ({
         width: '40px',
         height: '40px',
     },
+
+    link: {
+        textDecoration: 'none'
+    }
 }))
