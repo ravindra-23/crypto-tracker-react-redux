@@ -10,16 +10,20 @@ export default makeStyles((theme) => ({
 
     toolbar: theme.mixins.toolbar,
 
+    form: {
+        marginBottom: '20px'
+    },
+
     card: {
-        maxWidth: '400px',
+        maxWidth: '500px',
         cursor: 'pointer',
+        background: '#f2f6f6',
     },
 
     cardHeader: {
         display: 'flex',
         justifyContent: 'space-between',
-        padding: '20px',
-        borderBottom: '1px solid black',
+        borderBottom: '1px solid #b7e4c7',
     },
 
     icon: {
@@ -29,5 +33,10 @@ export default makeStyles((theme) => ({
 
     link: {
         textDecoration: 'none'
+    },
+
+    info: {
+        fontWeight: '400',
+        paddingBlock: '15px'
     }
 }))
