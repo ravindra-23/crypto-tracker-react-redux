@@ -18,7 +18,7 @@ const App = () => {
           <Cryptocurrencies />
         </Route>
         <Route path='/news'>
-          <News simplified={false} />
+          <News />
         </Route>
         <Route path="/crypto/:coinId">
               <Cryptodetails />

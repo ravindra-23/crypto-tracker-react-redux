@@ -3,11 +3,18 @@ import { makeStyles } from "@material-ui/core";
 export default makeStyles((theme) => ({
     Home: {
         marginTop: '100px',
+        width: '90%',
+        margin: '0 auto',
     },
 
     title: {
-        marginLeft: '40px',
-        marginBottom: '20px'
+        fontWeight: 700,
+        color: '#4c269a',
+        textAlign: 'center',
+    },
+
+    global: {
+        marginTop: '50px',
     },
     
     listItem: {
