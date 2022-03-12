@@ -22,7 +22,7 @@ const News = ( { simplified } ) => {
       <Grid container spacing={4} justifyContent='center'>
         <Grid item xs={12}>
           {!simplified &&  (
-            <FormControl autoWidth className={classes.formControl} variant='outlined'>
+            <FormControl className={classes.formControl}>
               <InputLabel>Cryptocurrency</InputLabel>
               <Select
                 className={classes.selectCategory}
