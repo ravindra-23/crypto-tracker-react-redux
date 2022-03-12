@@ -1,24 +1,21 @@
 import React from 'react'
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import useStyles from './styles'
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 import millify from 'millify'
 import {Cryptocurrencies, News} from '../index'
+import Loader from '../Loader/Loader'
 
 const HomeInfo = () => {
     const classes = useStyles()
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats
-    if(isFetching) return 'Loading...'
-    
+    if(isFetching) return <Loader />
   return (
     <div className={classes.Home}>
+        <Typography variant='h4' className={classes.title} gutterBottom>Global Crypto Stats</Typography>
         <div className={classes.global}>
             <Grid container spacing={2} justifyContent='center'>
-                <Grid item xs={12}>
-                    <Typography variant='h4' className={classes.title} gutterBottom>Global Crypto Stats</Typography>
-                </Grid>
-
                 <Grid item xs={6} className={classes.listItem}>
                     <div className={classes.list}>
                         <Typography variant='subtitle1'>Total Cryptocurrencies</Typography>
@@ -52,7 +49,7 @@ const HomeInfo = () => {
 
         
             <div className={classes.topCurrency}>
-                <Typography variant='h4' className={classes.title} gutterBottom>Top 10 Cryptos</Typography>
+                <Typography variant='h4' className={classes.title}>Top 10 Cryptos</Typography>
                     <Cryptocurrencies simplified />
             </div>
         
@@ -60,7 +57,7 @@ const HomeInfo = () => {
         <div className={classes.topNews}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
-                    <Typography variant='h4' className={classes.title} gutterBottom>Latest Crypto News</Typography>
+                    <Typography variant='h4' className={classes.title}>Latest Crypto News</Typography>
                 </Grid>
                 <News simplified />
             </Grid>

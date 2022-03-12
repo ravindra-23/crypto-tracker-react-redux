@@ -6,6 +6,8 @@ export default makeStyles((theme) => ({
         margin: '0 auto',
     },
 
+    toolbar: theme.mixins.toolbar,
+
     newsCard: {
         padding: theme.spacing(1),
         backgroundColor: '#f2f6f6',
@@ -45,12 +47,11 @@ export default makeStyles((theme) => ({
     },
 
     formControl: {
-        margin: theme.spacing(1),
         minWidth: 120,
       },
 
       selectCategory: {
-        marginTop: theme.spacing(2),
-        width: '150px',
+        marginTop: theme.spacing(1),
+        width: '200px',
       },
 }))

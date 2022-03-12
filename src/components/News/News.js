@@ -12,14 +12,16 @@ const News = ( { simplified } ) => {
   const { data } = useGetCryptosQuery(100);
   const [newsCategory, setNewsCategory] = useState('Crryptocurrency')
   const classes = useStyles()
-  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
+  const count = simplified ? 6 : 12;
+  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count })
   console.log(cryptoNews)
   if (!cryptoNews?.value) return <Loader />;
   return (
     <div className={classes.rootNews}>
+      <div className={classes.toolbar} />
       <Grid container spacing={4} justifyContent='center'>
         <Grid item xs={12}>
-          {simplified &&  (
+          {!simplified &&  (
             <FormControl autoWidth className={classes.formControl} variant='outlined'>
               <InputLabel>Cryptocurrency</InputLabel>
               <Select
