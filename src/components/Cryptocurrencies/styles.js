@@ -18,6 +18,10 @@ export default makeStyles((theme) => ({
         maxWidth: '500px',
         cursor: 'pointer',
         background: '#f2f6f6',
+        transition: 'all .2s ease-in-out',
+        '&:hover': {
+            transform: 'scale(1.1)'
+        }
     },
 
     cardHeader: {
