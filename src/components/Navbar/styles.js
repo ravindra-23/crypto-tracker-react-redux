@@ -2,9 +2,14 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
     icon: {
-        marginRight: theme.spacing(2),
-        backgroundColor: 'inherit',
+        marginRight: '10px',
     }, 
+
+    title: {
+        textDecoration: 'none',
+        letterSpacing: '2px',
+        color: 'inherit',
+    },
 
     iconImage: {
         width: '40px',
@@ -18,6 +23,18 @@ export default makeStyles((theme) => ({
     Link: {
         textDecoration: 'none',
         marginLeft: '40px',
-        color: 'inherit'
+        color: 'inherit',
+        letterSpacing: '1px',
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+        }
+    },
+
+    mobileMenu: {
+        [theme.breakpoints.up('sm')]: {
+            display: 'none'
+        }
     }
+
+
 }))
