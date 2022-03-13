@@ -54,4 +54,10 @@ export default makeStyles((theme) => ({
       selectCategory: {
         width: 170
     },
+
+    newsUrl: {
+        textDecoration: 'none',
+        fontWeight: 700,
+        color: '#4c269a'
+    }
 }))

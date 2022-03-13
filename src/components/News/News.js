@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Avatar, Card, CardContent, CardMedia, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
+import { Avatar, Card, CardActions, CardContent, CardMedia, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@material-ui/core'
 import { useGetCryptoNewsQuery } from '../../services/cryptoNewsApi'
 import Loader from '../Loader/Loader'
 import useStyles from './styles'
@@ -53,6 +53,11 @@ const News = ( { simplified } ) => {
                 </div>
                 <Typography paragraph className={classes.time}>{moment(news.datePublished).startOf('ss').fromNow()}</Typography>
               </CardContent>
+              <CardActions>
+                <Typography variant='body2'>
+                  <a href={news.url} target="_blank" className={classes.newsUrl}>Read More</a>
+                </Typography>
+              </CardActions>
             </Card>
           </Grid>
         ))}
