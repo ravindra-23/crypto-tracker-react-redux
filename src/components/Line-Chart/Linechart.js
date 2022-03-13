@@ -49,7 +49,7 @@ const Linechart = ({ coinHistory, currentPrice, coinName, timePeriod }) => {
   return (
     <>
         <div className={classes.chartHeader}>
-            <Typography variant='h5' className={classes.title}>{coinName} Price Chart </Typography>
+            <Typography variant='h5' className={classes.title} gutterBottom>{coinName} Price Chart </Typography>
             <div className={classes.priceSection}>
                 <Typography variant='h6' className={classes.priceChange}>Change: {coinHistory?.data?.change}%</Typography>
                 <Typography variant='h6' className={classes.priceCurrent}>Current {coinName} Price: $ {currentPrice}</Typography>

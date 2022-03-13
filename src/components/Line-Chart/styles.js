@@ -4,7 +4,11 @@ export default makeStyles((theme) => ({
     chartHeader: {
         display: 'flex',
         justifyContent: 'space-between',
+        marginTop: '20px',
         marginBottom: '20px',
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+        }
     },
 
     title: {
