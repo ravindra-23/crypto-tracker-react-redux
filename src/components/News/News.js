@@ -55,7 +55,7 @@ const News = ( { simplified } ) => {
               </CardContent>
               <CardActions>
                 <Typography variant='body2'>
-                  <a href={news.url} target="_blank" className={classes.newsUrl}>Read More</a>
+                  <a href={news.url} target="_blank" rel="noreferrer noopener" className={classes.newsUrl}>Read More</a>
                 </Typography>
               </CardActions>
             </Card>
