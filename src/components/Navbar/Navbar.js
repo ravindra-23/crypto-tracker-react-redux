@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, createTheme, ThemeProvider } from '@material-ui/core'
 import useStyles from './styles'
 import Logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
@@ -18,6 +18,14 @@ const Navbar = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const theme = createTheme();
+    theme.typography.h5 = {
+        fontSize: '1.5rem',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '1rem',
+        },
+    }
   return (
     <div className={classes.root}>
         <AppBar position='fixed' className={classes.appBar}>
@@ -28,9 +36,11 @@ const Navbar = () => {
                 >
                     <img src={Logo} alt='Crypto Icon' className={classes.iconImage} />
                 </IconButton>
-                <Typography variant='h5' component={Link} to='/' className={classes.title}>
-                    Crypto Tracker
-                </Typography>
+                <ThemeProvider theme={theme}>
+                    <Typography variant='h5' component={Link} to='/' className={classes.title}>
+                        Crypto Tracker
+                    </Typography>
+                </ThemeProvider>
 
                 <div className={classes.grow} />
 
