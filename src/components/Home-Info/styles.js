@@ -20,6 +20,7 @@ export default makeStyles((theme) => ({
     listItem: {
         display: 'flex',
         justifyContent: 'space-around',
+        alignItems: 'center',
         [theme.breakpoints.down('sm')]: {
             flexDirection: 'column',
             textAlign: 'center'

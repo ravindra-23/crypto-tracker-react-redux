@@ -11,6 +11,7 @@ const HomeInfo = () => {
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats
     if(isFetching) return <Loader />
+
   return (
     <div className={classes.Home}>
         <Typography variant='h4' className={classes.title} gutterBottom>Global Crypto Stats</Typography>
@@ -18,7 +19,7 @@ const HomeInfo = () => {
             <Grid container spacing={2} justifyContent='center'>
                 <Grid item xs={6} className={classes.listItem}>
                     <div className={classes.list}>
-                        <Typography variant='subtitle1'>Total Cryptocurrencies</Typography>
+                        <Typography variant='subtitle1'>Total Cryptocurreny</Typography>
                         <Typography variant='h4'>{globalStats.total.toLocaleString()}</Typography>
                     </div>
                     <div className={classes.list}>
