@@ -1,22 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import millify from 'millify'
 import Loader from '../Loader/Loader'
 import HTMLReactParser from 'html-react-parser'
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../../services/cryptoApi'
 import useStyles from './styles'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
 import {  MonetizationOnOutlined, FormatListNumberedOutlined, OfflineBoltOutlined, VerticalAlignTopOutlined, TrendingUpOutlined, CheckOutlined, HighlightOffOutlined, ErrorOutlineOutlined, AccountBalanceOutlined } from '@material-ui/icons'
 import Linechart from '../Line-Chart/Linechart'
 
 const Cryptodetails = () => {
     const classes = useStyles();
+    const [timePeriod, setTimePeriod] = useState('5y');
     const { coinId } = useParams();
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
-    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId })
+    const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
     const cryptoDetails = data?.data?.coin;
+    console.log(coinHistory)
 
     if(isFetching) return <Loader />
+
+    const time = ['3h', '24h', '7d', '30d', '3m', '1y', '3y', '5y'];
 
     const stats = [
         { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <MonetizationOnOutlined /> },
@@ -48,8 +52,22 @@ const Cryptodetails = () => {
         </div>
 
         <div className={classes.chartSection}>
+            <div className={classes.seletTime}>
+            <FormControl className={classes.formControl}>
+              <InputLabel>Time</InputLabel>
+              <Select
+                className={classes.time}
+                onChange={(event) => setTimePeriod(event.target.value)}
+                labelId="demo-simple-select-outlined-label"
+                id="demo-simple-select-outlined"
+              >
+                <MenuItem value=''>Time</MenuItem>
+                {time.map((date) => <MenuItem value={date}>{date}</MenuItem>)}
+              </Select>
+            </FormControl>
+            </div>
             <div className={classes.chart}>
-                <Linechart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
+                <Linechart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} timePeriod={timePeriod}/>
             </div>
         </div>
 
