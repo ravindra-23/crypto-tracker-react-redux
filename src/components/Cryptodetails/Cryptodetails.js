@@ -11,7 +11,7 @@ import Linechart from '../Line-Chart/Linechart'
 
 const Cryptodetails = () => {
     const classes = useStyles();
-    const [timePeriod, setTimePeriod] = useState('5y');
+    const [timePeriod, setTimePeriod] = useState('7d');
     const { coinId } = useParams();
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
@@ -61,8 +61,8 @@ const Cryptodetails = () => {
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
               >
-                <MenuItem value=''>Time</MenuItem>
-                {time.map((date) => <MenuItem value={date}>{date}</MenuItem>)}
+                <MenuItem defaultVale='7d'>Time</MenuItem>
+                {time.map((date) => <MenuItem value={date} key={date.toString()}>{date}</MenuItem>)}
               </Select>
             </FormControl>
             </div>

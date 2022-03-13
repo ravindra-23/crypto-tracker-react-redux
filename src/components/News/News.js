@@ -30,7 +30,7 @@ const News = ( { simplified } ) => {
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
               >
-                <MenuItem value='Cryptocurrency'>Cryptocurrency</MenuItem>
+                <MenuItem value=''>Cryptocurrency</MenuItem>
                 {data?.data?.coins?.map((currency) => <MenuItem value={currency.name}>{currency.name}</MenuItem>)}
               </Select>
             </FormControl>
