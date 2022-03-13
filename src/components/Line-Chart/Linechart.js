@@ -2,8 +2,9 @@ import { Typography } from '@material-ui/core';
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import useStyles from './styles'
+import moment from 'moment';
 
-const Linechart = ({ coinHistory, currentPrice, coinName }) => {
+const Linechart = ({ coinHistory, currentPrice, coinName, timePeriod }) => {
     const classes = useStyles();
     const coinPrice = [];
     const coinTimestamp = [];
@@ -13,7 +14,11 @@ const Linechart = ({ coinHistory, currentPrice, coinName }) => {
     }
 
     for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-        coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp * 1000).toLocaleDateString());
+        if(timePeriod === '3h' || timePeriod === '24h') {
+          coinTimestamp.push(moment(coinHistory?.data?.history[i].timestamp * 1000).format('LT'));
+        } else {
+          coinTimestamp.push(moment(coinHistory?.data?.history[i].timestamp * 1000).format('L'));
+        }
     }
 
     const data = {
