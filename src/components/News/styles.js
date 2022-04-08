@@ -30,7 +30,11 @@ export default makeStyles((theme) => ({
     newsProvider: {
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+            alignItems: 'start'
+        }
     },
 
     providerInfo: {
@@ -40,10 +44,6 @@ export default makeStyles((theme) => ({
 
     avatar: {
         marginRight: theme.spacing(2),
-    },
-
-    time: {
-        alignSelf: 'center'
     },
 
     formControl: {

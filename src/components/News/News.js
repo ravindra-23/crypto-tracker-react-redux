@@ -24,15 +24,17 @@ const News = ( { simplified } ) => {
           {!simplified &&  (
             <FormControl className={classes.formControl}>
               <InputLabel>Cryptocurrency</InputLabel>
-              <Select
-                className={classes.selectCategory}
-                onChange={(event) => setNewsCategory(event.target.value)}
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-              >
-                <MenuItem value=''>Cryptocurrency</MenuItem>
-                {data?.data?.coins?.map((currency) => <MenuItem value={currency.name}>{currency.name}</MenuItem>)}
-              </Select>
+              {data && 
+                <Select
+                  className={classes.selectCategory}
+                  onChange={(event) => setNewsCategory(event.target.value)}
+                  labelId="demo-simple-select-outlined-label"
+                  id="demo-simple-select-outlined"
+                >
+                  <MenuItem value=''></MenuItem>
+                  {data?.data?.coins?.map((currency) => <MenuItem key={currency.name} value={currency.name}>{currency.name}</MenuItem>)}
+                </Select>
+              }
             </FormControl>
           )}
         </Grid>
@@ -49,9 +51,11 @@ const News = ( { simplified } ) => {
               <CardContent className={classes.newsProvider}>
                 <div className={classes.providerInfo}>
                   <Avatar className={classes.avatar} src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} />
-                  <Typography variant='h6'>{news.provider[0]?.name}</Typography>
+                  <Typography variant='body1' gutterBottom>{news.provider[0]?.name}</Typography>
                 </div>
-                <Typography paragraph className={classes.time}>{moment(news.datePublished).startOf('ss').fromNow()}</Typography>
+                <div>
+                  <Typography paragraph className={classes.time}>{moment(news.datePublished).startOf('ss').fromNow()}</Typography>
+                </div>
               </CardContent>
               <CardActions>
                 <Typography variant='body2'>
